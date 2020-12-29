@@ -11,12 +11,31 @@
 
 <section class="content bg-white p-4 rounded">
   <div class="container">
-    {{form.valid }}
-    {{form.value | json}}
 
     <form #form="ngForm" novalidate>
+
+      <div class="row">
+        <div class="col-md-12 p-0 py-2">
+          <p class="font-weight-bold">Dados Pessoais</p>
+        </div>
+        <div class="col-md-4 pl-0">
+          <mt-input-container errorMessage="Campo Obrigatório" label="Nome">
+            <input name="name" placeholder="Nome" ngModel required minlength="5" autocomplete="off" class="form-control">
+          </mt-input-container>
+        </div>
+        <div class="col pl-0">
+          <mt-input-container errorMessage="Email Invalido" label="Email">
+            <input name="email" placeholder="Email" ngModel required minlength="5" autocomplete="off" class="form-control">
+          </mt-input-container>
+        </div>
+        <div class="col pl-0">
+          <mt-input-container errorMessage="Campo Obrigatório" label="EmailConfirm">
+            <input name="emailConfirmation" placeholder="Confirme o Email" ngModel required minlength="5" autocomplete="off" class="form-control">
+          </mt-input-container>
+        </div>
+      </div>
   
-      <div class="row invoice-info p-0">
+      <div class="row p-0">
         <div class="col-md-12 p-0 py-2">
           <p class="font-weight-bold">Endereço de Entrega:</p>
         </div>
