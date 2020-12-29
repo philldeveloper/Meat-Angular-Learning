@@ -1,0 +1,28 @@
+<!-- INICIO DO CONTEUDO -->
+<br>
+<div class="row p-0">
+  <div class="col-md-6 col-sm-12 mb-4" *ngFor="let review of reviews | async">
+    <div class="card h-100 border-0">
+      <div class="card-header bg-transparent border-bottom border-danger">
+        <div class="row justify-content-between">
+          <div class="user-block">
+            <img *ngIf="review.rating < 3" alt="User Image" class="img-circle ml-2 mr-2" style="max-width: 40px" src="assets/img/reactions/pissed.png">
+            <img *ngIf="review.rating >= 3 && review.rating < 4" alt="User Image" class="img-circle ml-2 mr-2" style="max-width: 40px" src="assets/img/reactions/soso.png">
+            <img *ngIf="review.rating >= 4" alt="User Image" class="img-circle ml-2 mr-2" style="max-width: 40px" src="assets/img/reactions/loved.png">
+            <span class="username font-weight-bold ml-2 mr-2">{{review.name}}, </span>
+            <span class="description bg-light rounded p-2">em {{review.date | date:'dd/MM/yyyy'}}</span>
+          </div>
+          <span class="mr-2 font-weight-bold">
+            <i class="fa fa-star text-danger"></i>
+            {{review.rating}}
+          </span>
+        </div>
+      </div>
+  
+      <div class="card-body">
+        <p class="lead small">{{review.comments}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--FIM DO CONTEUDO -->

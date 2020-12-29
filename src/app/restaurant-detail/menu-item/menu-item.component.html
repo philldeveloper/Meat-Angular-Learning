@@ -1,0 +1,16 @@
+<div class="card border-0 mb-2">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-5">
+        <img style="max-width: 75%" class="box-img-detail" [src]="menuItem.imagePath" />
+      </div>
+      <div class="col-md-7 mr-auto text-left">
+        <h5 class="font-weight-bold py-2">{{menuItem.name}}</h5>
+        <p>{{menuItem.description}}</p>
+        <hr>
+        <p class="float-left h5 font-weight-bold">{{menuItem.price | currency: 'BRL': true}}</p>
+        <a (click)="emitAddEvent()" class="btn btn-success text-light float-right"><i class="fa fa-plus-circle"></i>  Adicionar</a>
+      </div>  
+    </div>
+  </div>
+</div>

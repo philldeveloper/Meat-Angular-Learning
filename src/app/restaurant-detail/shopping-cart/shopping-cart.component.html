@@ -1,0 +1,39 @@
+<!--INICIO DO CARRINHO-->
+<div class="card">
+    <div class="card-header bg-light border-0">
+      <h5 class="card-title text-left pb-0">
+        <i class="fa fa-shopping-cart mr-2"></i>Carrinho
+      </h5>
+    </div>
+    <!-- /.box-header -->
+    <div class="card-body p-2">
+      <div class="container mx-auto" *ngIf="!items().length">
+        <div class="text-center py-3">
+          <i class="fa fa-exclamation-circle fa-2x"></i>
+          <p class="pt-2">seu carrinho está vazio. <b><i class="fa fa-frown-o"></i></b></p>
+        </div>
+      </div>
+      <div class="table-responsive pt-2" *ngIf="items().length">
+        <table class="table table-hover">
+          <tbody>
+            <tr *ngFor="let item of items()">
+              <th class="text-left">({{item.quantity}}x) {{item.menuItem.name}}</th>
+              <td class="text-right">{{item.value() | currency: 'BRL': true}}</td>
+              <td class="text-right text-light">
+                <a (click)="removeItem(item)" class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <th colspan="2" class="text-left">Total:</th>
+              <td class="text-right">{{total() | currency: 'BRL': true}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card-footer bg-transparent border-0 pt-0" *ngIf="items().length">
+      <button (click)="clear()" type="button" class="btn btn-outline-secondary float-left"><i class="fa fa-trash"></i> Limpar</button>
+      <a [routerLink]="['/order']" class="btn btn-success float-right"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+    </div>
+</div>
+<!-- FIM DO CARRINHO -->

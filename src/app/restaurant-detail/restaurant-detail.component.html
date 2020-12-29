@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="text-left text-light font-weight-light py-3">{{restaurant?.name}} <span class="float-right h3"><i class="fa fa-star mr-2"></i>{{restaurant?.rating}}</span></h1>
+</div>
+
+<div class="container">
+  <div class="card border-0">
+    <div class="card-body p-4">
+      <div class="row">
+        <div class="col-md-3" *ngIf="restaurant">
+          <img class="box-img-detail" [src]="restaurant?.imagePath" />
+        </div>
+        <dl class="col-md-9 mr-auto text-left">
+          <dt>Categoria</dt>
+          <dd>{{restaurant?.category}}</dd>
+          <dt>Quem somos</dt>
+          <dd>{{restaurant?.about}}</dd>
+          <dt>Horários</dt>
+          <dd>{{restaurant?.hours}}</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="card-footer bg-light border-0 detail-footer p-0">
+      <a [routerLink]="['menu']" routerLinkActive="detail-active" class="font-weight-bold float-left text-light">
+        Menu
+      </a>
+      <a [routerLink]="['reviews']" routerLinkActive="detail-active" class="font-weight-bold float-right text-light">
+        Avaliações
+      </a>
+    </div>
+  </div><!--card-->
+  
+  <div class="container p-0">
+    <router-outlet></router-outlet>
+  </div>
+</div>
