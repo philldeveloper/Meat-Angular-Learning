@@ -15,8 +15,13 @@
     <form [formGroup]="orderForm" novalidate>
 
       <div class="row">
-        <div class="col-md-12 p-0 py-2">
+        <div class="col-md-8 col-sm-12 p-0 py-2">
           <p class="font-weight-bold">Dados Pessoais</p>
+        </div>
+        <div class="col-md-4 col-sm-12">
+          <span class="help-block float-right has-error-block" *ngIf="orderForm.hasError('emailsNotMatch')">
+            <i class="fa fa-remove"></i>Emails não conferem
+          </span>
         </div>
         <div class="col-md-4 pl-0">
           <mt-input-container errorMessage="Campo Obrigatório" label="Nome">
