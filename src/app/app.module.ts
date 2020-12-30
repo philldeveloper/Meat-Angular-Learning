@@ -3,7 +3,8 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router'; //estrategia de carregamento rápido dos modulos
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import {ROUTES} from './app.routes'
 
@@ -51,7 +52,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SharedModule.forRoot(), //Module com os providers dentro, não precisa do core.
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, {provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

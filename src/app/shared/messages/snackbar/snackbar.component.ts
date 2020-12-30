@@ -40,7 +40,7 @@ export class SnackbarComponent implements OnInit {
       this.message = message
       this.snackVisibility = 'visible'
     }).switchMap(message => Observable.timer(3000))
-      .subscribe(times => MediaStreamTrackEvent)
+      .subscribe(timer => this.snackVisibility = 'hidden')
   }
 
 }
