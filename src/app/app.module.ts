@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, PreloadAllModules } from '@angular/router'; //estrategia de carregamento rápido dos modulos
- 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 import {ROUTES} from './app.routes'
 
 import { AppComponent } from './app.component';
@@ -17,10 +18,13 @@ import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
+import { SnackbarComponent} from './shared/messages/snackbar/snackbar.component';
 
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 import {SharedModule} from './shared/shared.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 
 
@@ -37,10 +41,12 @@ import {SharedModule} from './shared/shared.module';
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     SharedModule.forRoot(), //Module com os providers dentro, não precisa do core.
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
