@@ -1,14 +1,16 @@
 <a [routerLink]="['/restaurants', restaurant.id]">
-  <div class="place-info-box" [@restaurantAppeared]="restaurantState">
-    <span class="place-info-box-icon bg-white">
-      <img [src]="restaurant.imagePath"/>
-    </span>
-
-    <div class="place-info-box-content">
-      <span class="place-info-box-text text-left font-weight-bold">{{restaurant.name}}</span>
-      <span class="place-info-box-star"><i class="fa fa-star"></i> {{restaurant.rating}}</span>
-      <span class="place-info-box-detail text-left">{{restaurant.category}}</span>
-      <span class="place-info-box-detail text-left">{{restaurant.deliveryEstimate}}</span>
+  <div class="card p-0" [@restaurantAppeared]="restaurantState" style="max-height: 100% !important;">
+    <div class="card-body">
+      <span class="place-info-box-icon bg-white">
+        <img [src]="restaurant.imagePath"/>
+      </span>
+      <div class="place-info-box-content">
+        <span class="place-info-box-text py-2">{{restaurant.name}}
+          <span class="float-right"><i class="fa fa-star"></i> {{restaurant.rating}}</span>
+        </span>
+        <span class="place-info-box-detail"><b>Categoria:</b> {{restaurant.category}}</span>
+        <span class="place-info-box-detail"><b>Estimativa:</b> {{restaurant.deliveryEstimate}}</span>
+      </div>
     </div>
     <!-- /.info-box-content -->
   </div>

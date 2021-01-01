@@ -1,10 +1,45 @@
+<style>
+  ::placeholder{
+    color: white;
+    font-size: 20px;
+  }
+  input{
+    background-color: transparent; 
+    border: 2px solid #fff; 
+    border-radius: 50px !important; 
+    font-size: 20px;
+  }
+  input:active, input:focus{
+    background-color: transparent;
+  }
+</style>
 <!-- INíCIO do CONTEÚDO -->
-<h1 class="text-light text-left">Todos os Restaurantes</h1><br>
+<h1 class="text-light text-left">
+  Todos os Restaurantes
+  <a (click)="toggleSearch()" class="float-right search-link"><i class="fa fa-search"></i>
+    <span *ngIf="iptSearch.value"><small>"{{iptSearch.value}}"</small></span>
+  </a>
+</h1>
+
+<!--barra de busca-->
+<div class="row">
+  <div class="col-md-12 py-3 search-bar" [@toggleSearch]="searchBarState">
+    <form [formGroup]="searchForm">
+      <div class="form-group">
+        <input type="text" #iptSearch formControlName="searchControl" class="form-control lead text-light" placeholder="O que voce está procurando?">
+      </div>
+    </form>
+  </div>
+</div>
+<br>
 
 <section class="content">
   <div class="row">
     <div *ngFor="let restaurant of restaurants" class="col-sm-6 col-xs-12 pt-2">
         <mt-restaurant [restaurant]="restaurant"></mt-restaurant>
+    </div>
+    <div *ngIf="restaurants?.length === 0" class="col-md-12">
+      <p class="lead text-center text-light">Não foram encontrados itens para a sua busca.</p>
     </div>
   </div>
 </section>

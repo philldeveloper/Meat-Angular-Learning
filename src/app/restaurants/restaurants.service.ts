@@ -18,8 +18,14 @@ export class RestaurantsService {
 
     constructor(private http: Http){}
 
-    restaurants(): Observable<Restaurant[]>{
-        return this.http.get(`${MEAT_API}/restaurants`)
+    /* o paramento 'q:search' indica que basicamente qualquer atributo de restaurant
+    pode ser pesquisado, facilitando o campo de busca */
+
+    /* (search?:string) indica que esse metodo é opcional, logo qualquer função que esteja
+    chamando restaurants nao precisa obrigatoriamente passar uma string */
+    
+    restaurants(search?: string): Observable<Restaurant[]>{
+        return this.http.get(`${MEAT_API}/restaurants`, {params: {q: search}})
         .map(response => response.json())
         .catch(ErrorHandler.handleError)
     }

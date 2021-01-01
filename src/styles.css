@@ -52,17 +52,18 @@ body {
 }
 .place-info-box-icon > img {
   max-width: 100%;
-  /*border-right: 1px solid rgba(0, 0, 0, 0.1);*/
+  /* border-right: 1px solid rgba(0, 0, 0, 0.1); */
 }
 .place-info-box-content {
-  padding: 5px 10px;
-  margin-left: 120px;
+  padding: 2px 0px;
+  margin-left: 140px;
 }
 .place-info-box-detail {
   display: block;
   font-size: 14px;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   width: 100%;
+  color: #343a40;
 }
 
 .place-info-box-text {
@@ -72,12 +73,11 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   text-transform: uppercase;
-  width: 80%;
-  float: left
-}
-.place-info-box-text {
+  width: 100%;
+  float: left;
+  color: #343a40;
 }
 
 .place-info-box-star {
@@ -275,4 +275,17 @@ body {
 
 .has-error {
   border-color: #dd4b39 !important;
+}
+
+/*barra de busca*/
+
+.search-link{
+  cursor: pointer;
+  color: #fff;
+}
+.search-link:hover{
+  color: yellow !important;
+}
+.search-bar{
+  opacity: 0;
 }
